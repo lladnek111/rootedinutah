@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kendall Thompson — Rooted in Utah. A former athlete, chronic pain survivor, and gardener writing honestly about faith, mental health, and the slow work of becoming. Growing things slowly. Learning what lasts.">
+<meta property="og:title" content="Rooted in Utah — Kendall Thompson">
+<meta property="og:description" content="Growing things slowly. Learning what lasts. Weekly writing on faith, gardening, mental health, and the examined life.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rootedinutah.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rooted in Utah — Kendall Thompson">
+<meta name="twitter:description" content="Growing things slowly. Learning what lasts.">
+<title>Rooted in Utah — Kendall Thompson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* =====================
+   DESIGN TOKENS
+   ===================== */
+:root {
+  --forest:     #1a1f1a;
+  --forest2:    #212620;
+  --parchment:  #f2ede3;
+  --paper:      #faf7f2;
+  --cream:      #ede8dc;
+  --green:      #4a7c59;
+  --green-lt:   #6a9e78;
+  --green-dim:  #2d4f38;
+  --green-pale: #eaf2eb;
+  --gold:       #b89a4a;
+  --gold-lt:    #d4b86a;
+  --gold-dim:   #7a6530;
+  --bark:       #6b4f3a;
+  --sage-dk:    #7a9e76;
+  --rust:       #8f4a2e;
+  --ink:        #1e1a12;
+  --ink-mid:    #4a4030;
+  --ink-dim:    #7a6e58;
+  --rule:       #ddd4be;
+  --rule-lt:    #eee8d8;
+  --nav-h:      60px;
+  --max-w:      1100px;
+  --max-narrow: 740px;
+  --radius:     6px;
+  --transition: 0.2s ease;
+}
+
+/* =====================
+   RESET & BASE
+   ===================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+*:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* =====================
+   UTILITY CLASSES
+   ===================== */
+.wrap        { max-width: var(--max-w);      margin: 0 auto; padding: 0 1.5rem; }
+.wrap-narrow { max-width: var(--max-narrow); margin: 0 auto; padding: 0 1.5rem; }
+.pad         { padding: 5rem 0; }
+.pad-sm      { padding: 3.5rem 0; }
+.sr-only     { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+
+/* =====================
+   TYPOGRAPHY
+   ===================== */
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: block;
+  margin-bottom: 0.65rem;
+}
+h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.15; color: var(--ink); }
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 1rem; }
+h2 em { color: var(--green); font-style: italic; font-weight: 400; }
+h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+p  { color: var(--ink-mid); margin-bottom: 1rem; font-size: 0.975rem; line-height: 1.85; }
+p strong { color: var(--ink); }
+p:last-child { margin-bottom: 0; }
+
+.pullquote {
+  border-left: 3px solid var(--green);
+  background: var(--cream);
+  padding: 1.1rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.section-rule {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  margin: 2.5rem 0 1.2rem;
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 2px;
+  border: none;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-gold   { background: var(--gold-lt);  color: var(--forest); }
+.btn-gold:hover { background: var(--gold); }
+.btn-ghost  { background: transparent; color: var(--green); border: 1px solid var(--green); }
+.btn-ghost:hover { background: var(--green); color: #fff; }
+.btn-ghost-light { background: transparent; color: rgba(242,237,227,0.7); border: 1px solid rgba(74,124,89,0.4); }
+.btn-ghost-light:hover { background: rgba(74,124,89,0.15); color: var(--parchment); }
+
+/* =====================
+   NAVIGATION
+   ===================== */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 900;
+  height: var(--nav-h);
+  background: rgba(26,31,26,0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(74,124,89,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--parchment);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--gold-lt); font-style: italic; font-weight: 400; }
+.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242,237,227,0.4);
+  background: none;
+  border: none;
+  height: var(--nav-h);
+  padding: 0 13px;
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+.nav-link:hover  { color: var(--gold-lt); }
+.nav-link.active { color: var(--gold-lt); box-shadow: inset 0 -2px 0 var(--gold); }
+.nav-sub-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: var(--gold-lt);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 2px;
+  margin-left: 10px;
+  transition: background var(--transition);
+  white-space: nowrap;
+}
+.nav-sub-btn:hover { background: var(--gold); }
+
+/* mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(242,237,227,0.6);
+  border-radius: 1px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  background: var(--forest2);
+  border-bottom: 1px solid rgba(74,124,89,0.2);
+  z-index: 850;
+  padding: 1rem 0;
+  flex-direction: column;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu button {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242,237,227,0.55);
+  background: none;
+  border: none;
+  padding: 12px 1.5rem;
+  text-align: left;
+  transition: color var(--transition);
+}
+.mobile-menu button:hover { color: var(--gold-lt); }
+.mobile-menu .m-cta {
+  margin: 0.5rem 1.5rem 0.5rem;
+  background: var(--gold-lt);
+  color: var(--forest);
+  border-radius: 2px;
+  text-align: center;
+}
+
+/* =====================
+   PAGE SYSTEM
+   ===================== */
+.page { display: none; min-height: 100vh; padding-top: var(--nav-h); }
+.page.active { display: block; }
+
+/* page transition */
+.page.entering {
+  animation: fadeUp 0.3s ease forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   SECTION HEROES (dark)
+   ===================== */
+.section-hero {
+  background: var(--forest);
+  padding: 4.5rem 1.5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.section-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--gold-dim) 50%, transparent 100%);
+}
+.section-hero .eyebrow { color: var(--green-lt); }
+.section-hero h1,
+.section-hero h2 { color: var(--parchment); }
+.section-hero h1 em,
+.section-hero h2 em { color: var(--gold-lt); font-style: italic; font-weight: 400; }
+.section-hero p { color: rgba(242,237,227,0.5); max-width: 520px; }
+
+/* =====================
+   CARDS
+   ===================== */
+.card-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: 2rem; }
+.card-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; margin-top: 1.2rem; }
+.card-grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1rem; margin-top: 1.2rem; }
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateY(-2px); }
+.card-accent-top::before {
+  content: '';
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), transparent);
+}
+
+.card-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.card-img-garden  { background: linear-gradient(135deg, #2d4f38 0%, #1a3a22 100%); }
+.card-img-faith   { background: linear-gradient(135deg, #2a2020 0%, #3a2828 100%); }
+.card-img-mind    { background: linear-gradient(135deg, #1e2430 0%, #2a3040 100%); }
+.card-img-fitness { background: linear-gradient(135deg, #302820 0%, #3a2818 100%); }
+.card-img-identity{ background: linear-gradient(135deg, #1e2820 0%, #2a3828 100%); }
+.card-img-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-style: italic;
+  color: rgba(255,255,255,0.06);
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.1;
+  user-select: none;
+}
+
+.card-body { padding: 1.2rem 1.3rem 1.3rem; }
+.card-foot {
+  padding: 0.75rem 1.3rem;
+  border-top: 1px solid var(--rule-lt);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-dim);
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.45rem;
+}
+.card-excerpt { font-size: 13px; color: var(--ink-dim); line-height: 1.65; }
+
+/* post tags */
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.35rem;
+}
+.tag-garden  { color: var(--green); }
+.tag-faith   { color: var(--gold); }
+.tag-mind    { color: var(--bark); }
+.tag-fitness { color: var(--rust); }
+.tag-adhd    { color: var(--sage-dk); }
+.tag-identity{ color: var(--green-dim); }
+.tag-father  { color: #8a5030; }
+.read-more   { color: var(--green); font-size: 8.5px; letter-spacing: 0.1em; font-family: 'Space Mono', monospace; text-transform: uppercase; }
+
+/* =====================
+   NEWSLETTER FORM
+   ===================== */
+.nl-form { display: flex; gap: 0.5rem; max-width: 440px; margin: 0 auto; }
+.nl-input {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(74,124,89,0.3);
+  border-radius: 2px;
+  padding: 11px 14px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  color: var(--parchment);
+  outline: none;
+  min-width: 0;
+  transition: border-color var(--transition);
+}
+.nl-input::placeholder { color: rgba(242,237,227,0.3); }
+.nl-input:focus { border-color: var(--green); }
+.nl-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 11px 18px;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background var(--transition);
+}
+.nl-btn:hover { background: var(--green-lt); }
+.nl-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  color: rgba(242,237,227,0.22);
+  text-align: center;
+  margin-top: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.site-footer {
+  background: var(--forest);
+  border-top: 1px solid rgba(74,124,89,0.15);
+  padding: 3.5rem 1.5rem 2rem;
+}
+.footer-grid {
+  max-width: var(--max-w);
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+}
+.footer-brand p { font-size: 13px; color: rgba(242,237,227,0.32); line-height: 1.65; max-width: 230px; margin-top: 0.6rem; }
+.footer-col h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-bottom: 0.9rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li {
+  font-size: 13px;
+  color: rgba(242,237,227,0.32);
+  padding: 3.5px 0;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.footer-col li:hover { color: var(--gold-lt); }
+.footer-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer-bottom p {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+  color: rgba(242,237,227,0.18);
+  margin: 0;
+}
+
+/* =====================
+   HOME PAGE
+   ===================== */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  background: var(--forest);
+  display: flex;
+  align-items: center;
+  padding: 5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 78% 28%, rgba(74,124,89,0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 65% at 22% 72%, rgba(184,154,74,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-vine {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 44%;
+  opacity: 0.055;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-layout {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-eyebrow { color: var(--green-lt); }
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 900;
+  line-height: 1.0;
+  color: var(--parchment);
+  margin-bottom: 0.3rem;
+}
+.hero-h1-sub {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-lt);
+  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+  margin-top: 0.25rem;
+}
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(242,237,227,0.5);
+  margin: 1.6rem 0 2.2rem;
+  border-left: 2px solid var(--green-dim);
+  padding-left: 1.1rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+.hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+/* hero sidebar card */
+.hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(74,124,89,0.18);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+}
+.hero-card-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-lt);
+  margin-bottom: 1rem;
+}
+.latest-post {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(74,124,89,0.12);
+  cursor: pointer;
+}
+.latest-post:first-of-type { padding-top: 0; }
+.latest-post:last-of-type  { border-bottom: none; padding-bottom: 0; }
+.lp-tag   { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.lp-title { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 600; color: var(--parchment); line-height: 1.35; }
+.lp-exc   { font-size: 11.5px; color: rgba(242,237,227,0.38); margin-top: 3px; line-height: 1.5; }
+
+/* about strip */
+.about-strip { background: var(--cream); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.about-strip-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.photo-block {
+  aspect-ratio: 3/4;
+  background: var(--forest);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.photo-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 30%, rgba(74,124,89,0.18) 0%, transparent 65%);
+}
+.photo-block-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  position: relative;
+  z-index: 0;
+}
+.photo-block-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242,237,227,0.25);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1rem;
+}
+.about-text .btn-row { display: flex; gap: 0.8rem; margin-top: 1.5rem; flex-wrap: wrap; }
+
+/* featured posts */
+.featured-section { padding: 5rem 0; }
+
+/* nl strip */
+.nl-strip {
+  background: var(--forest);
+  padding: 5.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.nl-strip-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 80% at 50% 50%, rgba(74,124,89,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.nl-strip-inner { max-width: 540px; margin: 0 auto; position: relative; z-index: 1; }
+.nl-strip .eyebrow { color: var(--green-lt); }
+.nl-strip h2 { color: var(--parchment); margin-bottom: 0.7rem; }
+.nl-strip > .nl-strip-inner > p { color: rgba(242,237,227,0.5); margin-bottom: 1.8rem; }
+
+/* =====================
+   ABOUT PAGE
+   ===================== */
+.about-prose { padding: 4rem 0 6rem; }
+.about-prose p { font-size: 1rem; }
+.about-prose p:first-of-type { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--ink); }
+.for-you-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px,1fr)); gap: 0.9rem; margin-top: 1.1rem; }
+.fy-card { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+.fy-icon { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green); margin-bottom: 0.35rem; font-style: italic; }
+.fy-card p { font-size: 13px; line-height: 1.6; }
+
+/* =====================
+   BLOG PAGE
+   ===================== */
+.blog-filter-bar { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2rem; padding-top: 2rem; }
+.bf {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.bf:hover, .bf.on { background: var(--forest); color: var(--gold-lt); border-color: var(--forest); }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.4rem; }
+.blog-card { cursor: pointer; }
+
+/* =====================
+   NEWSLETTER PAGE
+   ===================== */
+.nl-page-body { padding: 4rem 0 6rem; }
+.nl-what-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap: 0.9rem; margin: 1.8rem 0 2.5rem; }
+.nl-what-item { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.nl-what-item p { font-size: 12.5px; line-height: 1.6; }
+.nl-signup-box {
+  background: var(--forest);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.nl-signup-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(74,124,89,0.11) 0%, transparent 70%);
+}
+.nl-signup-box h3 { color: var(--parchment); margin-bottom: 0.4rem; position: relative; z-index: 1; }
+.nl-signup-box p  { color: rgba(242,237,227,0.45); font-size: 14px; margin-bottom: 1.4rem; position: relative; z-index: 1; }
+.nl-signup-box .nl-form { position: relative; z-index: 1; }
+.issues-list { margin-top: 1.2rem; }
+.issue-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px;
+  gap: 0.8rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule-lt);
+  align-items: baseline;
+  cursor: pointer;
+}
+.issue-row:last-child { border-bottom: none; }
+.issue-row:hover .issue-title { color: var(--green); }
+.issue-num   { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); }
+.issue-title { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 600; color: var(--ink); line-height: 1.3; transition: color var(--transition); }
+.issue-date  { font-family: 'Space Mono', monospace; font-size: 8.5px; color: var(--ink-dim); text-align: right; }
+
+/* =====================
+   START HERE PAGE
+   ===================== */
+.start-paths { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.path-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1.7rem;
+  position: relative;
+  overflow: hidden;
+}
+.path-card::before { content: ''; display: block; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.path-garden::before  { background: var(--green); }
+.path-pain::before    { background: var(--bark); }
+.path-faith::before   { background: var(--gold); }
+.path-mental::before  { background: var(--sage-dk); }
+.path-label { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 0.6rem; }
+.path-posts { list-style: none; margin-top: 0.8rem; }
+.path-posts li { font-size: 13px; color: var(--ink-dim); padding: 4px 0 4px 1.1rem; border-bottom: 1px solid var(--rule-lt); position: relative; line-height: 1.45; }
+.path-posts li:last-child { border-bottom: none; }
+.path-posts li::before { content: '→'; position: absolute; left: 0; color: var(--green); font-size: 10px; top: 6px; }
+.promise-box { background: var(--cream); border: 1px solid var(--rule); border-radius: var(--radius); padding: 2.5rem; margin-top: 3rem; }
+.promise-box h3 { margin-bottom: 0.9rem; }
+.promise-box .btn-row { display: flex; gap: 0.8rem; margin-top: 1.5rem; flex-wrap: wrap; }
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 1024px) {
+  .hero-layout          { grid-template-columns: 1fr; }
+  .hero-card            { display: none; }
+  .about-strip-inner    { grid-template-columns: 1fr; }
+  .photo-block          { aspect-ratio: 16/9; max-height: 300px; }
+  .card-grid-3          { grid-template-columns: 1fr 1fr; }
+  .footer-grid          { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .card-grid-3          { grid-template-columns: 1fr; }
+  .card-grid-2          { grid-template-columns: 1fr; }
+  .nav-links            { display: none; }
+  .nav-toggle           { display: flex; }
+  .nl-form              { flex-direction: column; }
+  .issue-row            { grid-template-columns: 36px 1fr; }
+  .issue-date           { display: none; }
+  .footer-grid          { grid-template-columns: 1fr; }
+  .footer-bottom        { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 3rem 1.2rem; }
+  .hero-h1 { font-size: 2.4rem; }
+}
+
+/* =====================
+   PRINT
+   ===================== */
+@media print {
+  .site-nav, .mobile-menu, .site-footer, .hero-card, .nl-strip { display: none; }
+  .page { display: block !important; padding-top: 0; }
+  body { font-size: 12pt; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════
+     SITE NAVIGATION
+     ═══════════════════════════ -->
+<header class="site-nav" role="banner">
+  <div class="nav-logo" onclick="nav('home')" role="link" tabindex="0" aria-label="Rooted in Utah home">
+    Rooted <span>in Utah</span>
+  </div>
+  <nav class="nav-links" aria-label="Primary navigation">
+    <button class="nav-link active" onclick="nav('home')"       aria-current="page">Home</button>
+    <button class="nav-link"        onclick="nav('about')"                         >About</button>
+    <button class="nav-link"        onclick="nav('blog')"                          >Blog</button>
+    <button class="nav-link"        onclick="nav('newsletter')"                    >Newsletter</button>
+    <button class="nav-link"        onclick="nav('start')"                         >Start Here</button>
+    <button class="nav-sub-btn"     onclick="nav('newsletter')"                    >Subscribe Free</button>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <button onclick="nav('home')">Home</button>
+  <button onclick="nav('about')">About</button>
+  <button onclick="nav('blog')">Blog</button>
+  <button onclick="nav('newsletter')">Newsletter</button>
+  <button onclick="nav('start')">Start Here</button>
+  <button class="m-cta" onclick="nav('newsletter')">Subscribe Free →</button>
+</nav>
+
+
+<!-- ═══════════════════════════
+     HOME PAGE
+     ═══════════════════════════ -->
+<main id="page-home" class="page active" aria-label="Home">
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <svg class="hero-vine" viewBox="0 0 300 500" fill="none" aria-hidden="true">
+      <path d="M150 480C150 480 150 300 150 240" stroke="white" stroke-width="1.5"/>
+      <path d="M150 380C150 380 100 345 55 330" stroke="white" stroke-width="1.2"/>
+      <path d="M150 345C150 345 200 305 255 285" stroke="white" stroke-width="1.2"/>
+      <path d="M150 295C150 295 95 265 48 242" stroke="white" stroke-width="1.2"/>
+      <path d="M150 270C150 270 205 245 258 218" stroke="white" stroke-width="1.2"/>
+      <ellipse cx="48" cy="236" rx="26" ry="16" transform="rotate(-22 48 236)" stroke="white" stroke-width="0.8"/>
+      <ellipse cx="260" cy="212" rx="24" ry="14" transform="rotate(18 260 212)" stroke="white" stroke-width="0.8"/>
+      <ellipse cx="50" cy="325" rx="28" ry="17" transform="rotate(-18 50 325)" stroke="white" stroke-width="0.8"/>
+      <ellipse cx="258" cy="280" rx="26" ry="15" transform="rotate(14 258 280)" stroke="white" stroke-width="0.8"/>
+      <path d="M150 240C150 240 128 188 108 156C88 124 116 80 150 70C184 60 212 82 220 114C228 146 210 178 190 200C170 222 150 240 150 240Z" stroke="white" stroke-width="1.2"/>
+      <circle cx="150" cy="68" r="7" stroke="white" stroke-width="0.8"/>
+    </svg>
+    <div class="hero-layout">
+      <div class="hero-text">
+        <span class="eyebrow hero-eyebrow">Kendall Thompson — Rooted in Utah</span>
+        <h1 class="hero-h1">Growing things slowly.
+          <span class="hero-h1-sub">Learning what lasts.</span>
+        </h1>
+        <p class="hero-tagline">A former athlete. A man who spent twelve years in chronic pain finding his soul in the soil. A husband, father, and believer writing honestly about faith, mental health, and what it means to tend a life the way you'd tend a garden you loved.</p>
+        <div class="hero-btns">
+          <button class="btn btn-gold"         onclick="nav('start')">Start Here</button>
+          <button class="btn btn-ghost-light"  onclick="nav('newsletter')">Join the Newsletter</button>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Recent posts">
+        <div class="hero-card-label">Recent writing</div>
+        <div class="latest-post" onclick="nav('blog')">
+          <div class="lp-tag">The Garden</div>
+          <div class="lp-title">The perennial that came back when I had stopped expecting it to</div>
+          <p class="lp-exc">Some things have to look completely finished before they come back.</p>
+        </div>
+        <div class="latest-post" onclick="nav('blog')">
+          <div class="lp-tag">Origin Story</div>
+          <div class="lp-title">I thought I was dying. I was just dormant.</div>
+          <p class="lp-exc">Winter is not the end of the story. It's where the root work happens.</p>
+        </div>
+        <div class="latest-post" onclick="nav('blog')">
+          <div class="lp-tag">Mental Health</div>
+          <div class="lp-title">What anxiety actually felt like — not the clinical version, mine</div>
+          <p class="lp-exc">The low-grade hum of a nervous system that forgot what rest felt like.</p>
+        </div>
+        <div style="margin-top:1.1rem">
+          <button class="btn btn-ghost-light" style="font-size:9px;padding:8px 14px" onclick="nav('blog')">Read all posts →</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- About strip -->
+  <section class="about-strip" aria-label="About Kendall">
+    <div class="about-strip-inner">
+      <div class="photo-block" role="img" aria-label="Photo of Kendall in his garden — placeholder">
+        <div class="photo-block-text" aria-hidden="true">KT</div>
+        <p class="photo-block-caption">Replace with your garden photo<br>Morning light · Natural setting</p>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">About Kendall</span>
+        <h2>From the track<br>to the <em>soil</em></h2>
+        <p>I was an elite runner before chronic pain took that away for twelve years. In the process of losing my athletic identity I found something more durable — a faith stripped of its performance layer, a love for growing things slowly, and a deep conviction that meaning is available almost anywhere if you're willing to pay attention.</p>
+        <p>I live in Utah with my wife and daughter. I grow perennials, vegetables, fruit, and flowers. I write about what the garden teaches me about everything else.</p>
+        <div class="btn-row">
+          <button class="btn btn-gold"  onclick="nav('about')">Read my story</button>
+          <button class="btn btn-ghost" onclick="nav('start')">New here? Start here</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured posts -->
+  <section class="featured-section" aria-label="Featured posts">
+    <div class="wrap">
+      <span class="eyebrow">From the blog</span>
+      <h2>Recent writing</h2>
+      <div class="card-grid-3">
+        <article class="card" onclick="nav('blog')">
+          <div class="card-img card-img-garden"><div class="card-img-label">The Garden</div></div>
+          <div class="card-body">
+            <span class="tag tag-garden">The Garden</span>
+            <div class="card-title">Dormant, Not Dead</div>
+            <p class="card-excerpt">The perennial looks finished. The root system is working. What I've learned to be careful about calling dead.</p>
+          </div>
+          <div class="card-foot"><span>5 min read</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card" onclick="nav('blog')">
+          <div class="card-img card-img-faith"><div class="card-img-label">Faith</div></div>
+          <div class="card-body">
+            <span class="tag tag-faith">Faith</span>
+            <div class="card-title">My faith in the hard years didn't look like the faith I'd been taught to perform</div>
+            <p class="card-excerpt">Prayers that were more complaint than petition. A faith that got harder and became more durable for it.</p>
+          </div>
+          <div class="card-foot"><span>6 min read</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card" onclick="nav('blog')">
+          <div class="card-img card-img-mind"><div class="card-img-label">Mental Health</div></div>
+          <div class="card-body">
+            <span class="tag tag-mind">Mental Health</span>
+            <div class="card-title">The quiet kind</div>
+            <p class="card-excerpt">Depression that goes to church and answers fine. The version that loses color gradually, like light fading at the end of a day so slowly you don't notice.</p>
+          </div>
+          <div class="card-foot"><span>5 min read</span><span class="read-more">Read →</span></div>
+        </article>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-ghost" onclick="nav('blog')">Read all posts</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter strip -->
+  <section class="nl-strip" aria-label="Newsletter signup">
+    <div class="nl-strip-glow" aria-hidden="true"></div>
+    <div class="nl-strip-inner">
+      <span class="eyebrow">Free Weekly Newsletter</span>
+      <h2 style="color:var(--parchment)">The Examined <em style="color:var(--gold-lt);font-style:italic;font-weight:400">Life</em></h2>
+      <p>Weekly letters on faith, gardening, mental health, and the slow work of becoming. Written like a letter to one person — because it is.</p>
+      <div class="nl-form">
+        <label class="sr-only" for="nl-email-home">Email address</label>
+        <input class="nl-input" type="email" id="nl-email-home" placeholder="your@email.com" autocomplete="email">
+        <button class="nl-btn" onclick="subSuccess(this)">Subscribe Free</button>
+      </div>
+      <p class="nl-note">No ads · No spam · Unsubscribe anytime · I don't email on Sundays</p>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">Rooted <span>in Utah</span></div>
+        <p>Growing things slowly. Learning what lasts. Weekly writing on faith, gardening, mental health, and the examined life.</p>
+      </div>
+      <div class="footer-col"><h4>Navigate</h4><ul>
+        <li onclick="nav('home')">Home</li><li onclick="nav('about')">About</li>
+        <li onclick="nav('blog')">Blog</li><li onclick="nav('start')">Start Here</li>
+      </ul></div>
+      <div class="footer-col"><h4>Topics</h4><ul>
+        <li>The Garden</li><li>Faith & Theology</li><li>Mental Health</li><li>Fatherhood</li>
+      </ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul>
+        <li onclick="nav('newsletter')">Newsletter</li><li>Instagram</li><li>YouTube</li><li>Facebook</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Kendall Thompson — rootedinutah.com</p>
+      <p>Growing things slowly. Learning what lasts.</p>
+    </div>
+  </footer>
+</main>
+
+
+<!-- ═══════════════════════════
+     ABOUT PAGE
+     ═══════════════════════════ -->
+<main id="page-about" class="page" aria-label="About Kendall Thompson">
+
+  <div class="section-hero">
+    <div class="wrap-narrow">
+      <span class="eyebrow">About Kendall Thompson</span>
+      <h1>I used to be a runner.<br><em>Now I grow things.</em></h1>
+      <p>The story of how twelve years of chronic pain, an identity crisis, and a patch of Utah soil made me the man I am.</p>
+    </div>
+  </div>
+
+  <div class="about-prose">
+    <div class="wrap-narrow">
+      <p>My name is Kendall Thompson, and for most of my life I've been searching for meaning.</p>
+      <p>I grew up in Utah surrounded by mountains, faith, and the ordinary rhythms of life that seem insignificant until years later when you realize they shaped who you became. I was a runner — a serious one. Track and cross country. The kind of athlete who felt most like himself at mile six of a ten-mile tempo run, when everything hurt just enough and the rhythm took over and the world got very quiet and very clear.</p>
+      <div class="pullquote">"My body was the thing I trusted most. I knew what it could do. I knew its limits and I knew how to push past them. My identity lived there — in the pace, in the times, in the feeling of crossing a finish line having left everything on the course."</div>
+      <p>Then chronic pain arrived. Quietly at first — the way a houseguest shows up before you realize they're not leaving. I kept running because running was what I was. I ran through the early discomfort the way I'd run through every other hard thing — head down, jaw set, certain my body would cooperate if I just demanded it to.</p>
+      <p>My body had other plans.</p>
+
+      <div class="section-rule">The Decade</div>
+      <p>Ten years is a long time to be in pain. I want to say that plainly because I think we soften these things and the softening does a disservice to anyone going through something similar.</p>
+      <p>It was hard. Progressively, relentlessly hard. The kind of hard that changes your personality, your relationships, your faith, your sense of who you are and what your life is for. I watched the running go first. Then the easy movement. Then the assumption that tomorrow would feel better than today.</p>
+      <p>What I didn't expect was how thoroughly chronic pain would get into everything — producing anxiety, producing grief, a particular kind of loneliness that comes from suffering that is invisible and hard to explain. And then the loss of my athletic identity left me with a question I wasn't equipped to answer: <em>Who are you when the thing that defined you is gone?</em></p>
+      <p>Those questions became more than philosophy. They became survival. I searched everywhere for answers — in faith, science, theology, philosophy, psychology, in books I read at 2am because sleep wouldn't come, in prayers that felt like shouting into a room I wasn't sure had anyone in it.</p>
+
+      <div class="section-rule">Finding the Soil</div>
+      <p>I found the garden when I couldn't find anything else. Not through a dramatic decision — I just needed something my body could manage. Something that required presence without requiring performance. Something that gave back without demanding more than I had.</p>
+      <p>The soil asked nothing of me that I couldn't give. It didn't care how fast I used to run. It just needed attention, consistency, a willingness to show up even when nothing visible was happening yet.</p>
+      <div class="pullquote">"The garden became the first place in years where I felt like myself. Not my old self. Something newer. Something that had grown in the hard years without my realizing it."</div>
+      <p>I grow perennials mostly — things that come back. Vegetables because there's something quietly sacred about eating what you grew. Fruit because patience has a flavor. Flowers because beauty is not a luxury. Some of mine are edible. I like that — things that feed you and make you stop and look at the same time.</p>
+
+      <div class="section-rule">The Miracle</div>
+      <p>After roughly twelve years the pain began lifting. Slowly. Without a clear medical explanation. After years of searching, treating, praying, and enduring — one day it started getting better, and I don't fully know why.</p>
+      <p>I hold this quietly. I prayed about this for twelve years — not always faithfully or eloquently, sometimes the way you talk to someone in a room when you're not sure they're listening. I kept talking. And then something changed. Maybe that's what a miracle looks like. Not lightning. Just the ground thawing when you had started to accept the cold.</p>
+
+      <div class="section-rule">Who This Is For</div>
+      <p>I write, garden, and build this page for a specific person. You'll know if it's you.</p>
+      <div class="for-you-grid">
+        <div class="fy-card"><div class="fy-icon">↓</div><p>You're in a hard season and need someone to tell you dormant is not dead.</p></div>
+        <div class="fy-card"><div class="fy-icon">↓</div><p>You love your faith and have real questions you don't know how to ask out loud.</p></div>
+        <div class="fy-card"><div class="fy-icon">↓</div><p>You're managing ADHD, anxiety, or chronic pain inside a high-expectation life.</p></div>
+        <div class="fy-card"><div class="fy-icon">↓</div><p>You love the idea of a garden and want to think about it more deeply than just growing tips.</p></div>
+        <div class="fy-card"><div class="fy-icon">↓</div><p>You lost the thing that defined you and are figuring out who you are now.</p></div>
+        <div class="fy-card"><div class="fy-icon">↓</div><p>You want honest conversation about faith and mental health — not performance, not platitudes.</p></div>
+      </div>
+      <div class="btn-row" style="margin-top:2rem;display:flex;gap:0.8rem;flex-wrap:wrap">
+        <button class="btn btn-gold"  onclick="nav('start')">Start reading here</button>
+        <button class="btn btn-ghost" onclick="nav('newsletter')">Join the newsletter</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-logo" style="cursor:default">Rooted <span>in Utah</span></div><p>Growing things slowly. Learning what lasts.</p></div>
+      <div class="footer-col"><h4>Navigate</h4><ul><li onclick="nav('home')">Home</li><li onclick="nav('blog')">Blog</li><li onclick="nav('start')">Start Here</li><li onclick="nav('newsletter')">Newsletter</li></ul></div>
+      <div class="footer-col"><h4>Topics</h4><ul><li>The Garden</li><li>Faith & Theology</li><li>Mental Health</li><li>Fatherhood</li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li>Instagram</li><li>YouTube</li><li>Facebook</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Kendall Thompson — rootedinutah.com</p><p>Growing things slowly. Learning what lasts.</p></div>
+  </footer>
+</main>
+
+
+<!-- ═══════════════════════════
+     BLOG PAGE
+     ═══════════════════════════ -->
+<main id="page-blog" class="page" aria-label="Blog">
+
+  <div class="section-hero">
+    <div class="wrap">
+      <span class="eyebrow">All Writing</span>
+      <h1>The <em>Blog</em></h1>
+      <p>Essays on gardening, faith, mental health, fatherhood, and the slow work of becoming. Written when there's something worth saying.</p>
+    </div>
+  </div>
+
+  <div class="pad-sm">
+    <div class="wrap">
+      <div class="blog-filter-bar" role="group" aria-label="Filter posts by topic">
+        <button class="bf on"  onclick="filterBlog('all',this)"     >All</button>
+        <button class="bf"     onclick="filterBlog('garden',this)"  >The Garden</button>
+        <button class="bf"     onclick="filterBlog('faith',this)"   >Faith</button>
+        <button class="bf"     onclick="filterBlog('mental',this)"  >Mental Health</button>
+        <button class="bf"     onclick="filterBlog('adhd',this)"    >ADHD</button>
+        <button class="bf"     onclick="filterBlog('fitness',this)" >Fitness</button>
+        <button class="bf"     onclick="filterBlog('father',this)"  >Fatherhood</button>
+        <button class="bf"     onclick="filterBlog('identity',this)">Identity</button>
+      </div>
+      <div class="blog-grid" id="blogGrid">
+        <article class="card blog-card" data-cat="garden">
+          <div class="card-img card-img-garden"><div class="card-img-label">The Garden</div></div>
+          <div class="card-body"><span class="tag tag-garden">The Garden</span><div class="card-title">Dormant, Not Dead</div><p class="card-excerpt">The perennial looks finished. The root system is working. What I've learned to be careful about calling dead — in the garden and in my own life.</p></div>
+          <div class="card-foot"><span class="tag tag-garden">Garden</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="garden">
+          <div class="card-img card-img-garden" style="background:linear-gradient(135deg,#1e3a28,#2a4a32)"><div class="card-img-label">New Soil</div></div>
+          <div class="card-body"><span class="tag tag-garden">The Garden</span><div class="card-title">Leaving the Garden Behind</div><p class="card-excerpt">Selling the house. Leaving behind what you built with your hands. And arriving somewhere with roots already in the ground that someone else planted.</p></div>
+          <div class="card-foot"><span class="tag tag-garden">Garden</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="garden">
+          <div class="card-img card-img-garden" style="background:linear-gradient(135deg,#243428,#1a2a1e)"><div class="card-img-label">Perennial</div></div>
+          <div class="card-body"><span class="tag tag-garden">The Garden</span><div class="card-title">Why I grow what I grow</div><p class="card-excerpt">Perennials, vegetables, fruit, and flowers. Beauty and utility in the same space. What I'm after in the garden and honestly — in life.</p></div>
+          <div class="card-foot"><span class="tag tag-garden">Garden</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="faith">
+          <div class="card-img card-img-faith"><div class="card-img-label">Faith</div></div>
+          <div class="card-body"><span class="tag tag-faith">Faith</span><div class="card-title">My faith in the hard years didn't look like the faith I'd been taught to perform</div><p class="card-excerpt">Prayers that were more complaint than petition. Long stretches of spiritual quiet. What I think faith actually is versus what I was shown.</p></div>
+          <div class="card-foot"><span class="tag tag-faith">Faith</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="faith">
+          <div class="card-img card-img-faith" style="background:linear-gradient(135deg,#2a1818,#382020)"><div class="card-img-label">Meaning</div></div>
+          <div class="card-body"><span class="tag tag-faith">Faith</span><div class="card-title">Meaning is available almost anywhere if you're willing to pay attention</div><p class="card-excerpt">The core thesis of everything I write about. What chronic pain, philosophy, and the garden taught me about where meaning lives.</p></div>
+          <div class="card-foot"><span class="tag tag-faith">Faith</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="mental">
+          <div class="card-img card-img-mind"><div class="card-img-label">Anxiety</div></div>
+          <div class="card-body"><span class="tag tag-mind">Mental Health</span><div class="card-title">What anxiety actually felt like — not the clinical version, mine</div><p class="card-excerpt">Not always panic. The low-grade hum. The nervous system that forgot what rest felt like. The invisible and relentless version.</p></div>
+          <div class="card-foot"><span class="tag tag-mind">Mental Health</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="mental">
+          <div class="card-img card-img-mind" style="background:linear-gradient(135deg,#20202e,#2e2e3e)"><div class="card-img-label">Depression</div></div>
+          <div class="card-body"><span class="tag tag-mind">Mental Health</span><div class="card-title">The quiet kind</div><p class="card-excerpt">Depression that goes to church and answers fine. The version that loses color gradually, like light fading at the end of a day so slowly you don't notice.</p></div>
+          <div class="card-foot"><span class="tag tag-mind">Mental Health</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="adhd">
+          <div class="card-img card-img-mind" style="background:linear-gradient(135deg,#222a2c,#2c3432)"><div class="card-img-label">ADHD</div></div>
+          <div class="card-body"><span class="tag tag-adhd">ADHD</span><div class="card-title">ADHD inside a high-achieving identity</div><p class="card-excerpt">The specific shame of struggling at things your faith community says should be simple. You are not spiritually defective. You are neurologically different.</p></div>
+          <div class="card-foot"><span class="tag tag-adhd">ADHD</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="fitness">
+          <div class="card-img card-img-fitness"><div class="card-img-label">Fitness</div></div>
+          <div class="card-body"><span class="tag tag-fitness">Fitness</span><div class="card-title">The Restart</div><p class="card-excerpt">Starting and failing to make it stick. The former elite athlete learning to begin again as a different person on completely different terms.</p></div>
+          <div class="card-foot"><span class="tag tag-fitness">Fitness</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="identity">
+          <div class="card-img card-img-identity"><div class="card-img-label">Identity</div></div>
+          <div class="card-body"><span class="tag tag-identity">Identity</span><div class="card-title">I will never run the way I used to run</div><p class="card-excerpt">Grief and gratitude living in the same soil. The runner and the gardener. The identity that holds through winters versus the one that collapses with the body.</p></div>
+          <div class="card-foot"><span class="tag tag-identity">Identity</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="father">
+          <div class="card-img card-img-faith" style="background:linear-gradient(135deg,#281e18,#302420)"><div class="card-img-label">Fatherhood</div></div>
+          <div class="card-body"><span class="tag tag-father">Fatherhood</span><div class="card-title">I became a husband and a father inside the pain</div><p class="card-excerpt">What it cost and what it produced. Love is not a performance — it's the quiet decision, made again every day, to remain and to try.</p></div>
+          <div class="card-foot"><span class="tag tag-father">Fatherhood</span><span class="read-more">Read →</span></div>
+        </article>
+        <article class="card blog-card" data-cat="garden">
+          <div class="card-img card-img-garden" style="background:linear-gradient(135deg,#283830,#1e2c26)"><div class="card-img-label">Utah</div></div>
+          <div class="card-body"><span class="tag tag-garden">Utah Life</span><div class="card-title">Utah will teach you patience whether you want to learn it or not</div><p class="card-excerpt">Spring here doesn't arrive so much as negotiate. What the seasons of a Utah garden have taught me about timing, trust, and letting go.</p></div>
+          <div class="card-foot"><span class="tag tag-garden">Utah Life</span><span class="read-more">Read →</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-logo" style="cursor:default">Rooted <span>in Utah</span></div><p>Growing things slowly. Learning what lasts.</p></div>
+      <div class="footer-col"><h4>Navigate</h4><ul><li onclick="nav('home')">Home</li><li onclick="nav('about')">About</li><li onclick="nav('start')">Start Here</li><li onclick="nav('newsletter')">Newsletter</li></ul></div>
+      <div class="footer-col"><h4>Topics</h4><ul><li>The Garden</li><li>Faith & Theology</li><li>Mental Health</li><li>Fatherhood</li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li>Instagram</li><li>YouTube</li><li>Facebook</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Kendall Thompson — rootedinutah.com</p><p>Growing things slowly. Learning what lasts.</p></div>
+  </footer>
+</main>
+
+
+<!-- ═══════════════════════════
+     NEWSLETTER PAGE
+     ═══════════════════════════ -->
+<main id="page-newsletter" class="page" aria-label="Newsletter">
+
+  <div class="section-hero" style="text-align:center">
+    <div class="wrap-narrow">
+      <span class="eyebrow">Free Weekly Newsletter</span>
+      <h1>The Examined <em>Life</em></h1>
+      <p style="margin:0 auto">Weekly letters on faith, gardening, mental health, and the slow work of becoming. Written like a letter to one person — because it is.</p>
+    </div>
+  </div>
+
+  <div class="nl-page-body">
+    <div class="wrap-narrow">
+      <p>Every week I write one letter. No news roundup, no content calendar, no performance of consistency for its own sake. Just one thing I've been thinking about — from the garden, from the hard years, from the examined life — and why I think it's worth your time.</p>
+      <p>I've been told these letters feel like sitting across from someone who is being honest with you. That's the only thing I know how to write.</p>
+
+      <div class="section-rule">What you get</div>
+      <div class="nl-what-grid">
+        <div class="nl-what-item"><span class="eyebrow">Weekly</span><p>One letter, every week. Never daily. Never more than you asked for.</p></div>
+        <div class="nl-what-item"><span class="eyebrow">Honest</span><p>Real life, not curated life. The garden, the hard years, the questions without tidy answers.</p></div>
+        <div class="nl-what-item"><span class="eyebrow">Deep</span><p>Faith, philosophy, mental health, and the examined life — with actual substance.</p></div>
+        <div class="nl-what-item"><span class="eyebrow">Free</span><p>Always free. No bait-and-switch. No content withheld until you upgrade.</p></div>
+      </div>
+
+      <div class="nl-signup-box">
+        <h3>Join The Examined Life</h3>
+        <p>Free · Weekly · Unsubscribe anytime · No Sundays</p>
+        <div class="nl-form">
+          <label class="sr-only" for="nl-email-page">Email address</label>
+          <input class="nl-input" type="email" id="nl-email-page" placeholder="your@email.com" autocomplete="email">
+          <button class="nl-btn" onclick="subSuccess(this)">Subscribe Free</button>
+        </div>
+        <p class="nl-note">I don't post on Sundays — I don't email on them either.</p>
+      </div>
+
+      <div class="section-rule" style="margin-top:3rem">Recent issues</div>
+      <div class="issues-list">
+        <div class="issue-row"><span class="issue-num">001</span><div class="issue-title">Why I'm starting this — the real version, not the polished one</div><span class="issue-date">Week 1</span></div>
+        <div class="issue-row"><span class="issue-num">002</span><div class="issue-title">The perennial metaphor I can't stop thinking about</div><span class="issue-date">Week 2</span></div>
+        <div class="issue-row"><span class="issue-num">003</span><div class="issue-title">What Utah seasons teach you about patience you didn't ask to learn</div><span class="issue-date">Week 3</span></div>
+        <div class="issue-row"><span class="issue-num">004</span><div class="issue-title">I used to be a runner — the beginning of a longer story</div><span class="issue-date">Week 4</span></div>
+        <div class="issue-row"><span class="issue-num">005</span><div class="issue-title">What leaving the garden I built taught me about attachment and grace</div><span class="issue-date">Week 5</span></div>
+        <div class="issue-row"><span class="issue-num">006</span><div class="issue-title">Ten years is a long time to be in pain — said plainly</div><span class="issue-date">Week 6</span></div>
+        <div class="issue-row"><span class="issue-num">007</span><div class="issue-title">What the soil asks of you that nothing else does</div><span class="issue-date">Week 7</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-logo" style="cursor:default">Rooted <span>in Utah</span></div><p>Growing things slowly. Learning what lasts.</p></div>
+      <div class="footer-col"><h4>Navigate</h4><ul><li onclick="nav('home')">Home</li><li onclick="nav('about')">About</li><li onclick="nav('blog')">Blog</li><li onclick="nav('start')">Start Here</li></ul></div>
+      <div class="footer-col"><h4>Topics</h4><ul><li>The Garden</li><li>Faith & Theology</li><li>Mental Health</li><li>Fatherhood</li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li>Instagram</li><li>YouTube</li><li>Facebook</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Kendall Thompson — rootedinutah.com</p><p>Growing things slowly. Learning what lasts.</p></div>
+  </footer>
+</main>
+
+
+<!-- ═══════════════════════════
+     START HERE PAGE
+     ═══════════════════════════ -->
+<main id="page-start" class="page" aria-label="Start Here">
+
+  <div class="section-hero">
+    <div class="wrap-narrow">
+      <span class="eyebrow">New Here?</span>
+      <h1>Start <em>Here</em></h1>
+      <p>If you just found this page and don't know where to begin, this is where I'd send you. Four paths depending on where you are right now.</p>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="wrap">
+      <div class="start-paths">
+        <div class="path-card path-garden">
+          <div class="path-label">Path 01 — Found me through gardening</div>
+          <h3>Start with the soil</h3>
+          <p>The garden is the entry point to everything here. Start with these and the rest will make sense naturally.</p>
+          <ul class="path-posts">
+            <li>Why I grow what I grow</li>
+            <li>The perennial that came back</li>
+            <li>What the garden gives me that nothing else does</li>
+            <li>Leaving the garden behind — and inheriting someone else's</li>
+            <li>Utah seasons and what they teach about patience</li>
+          </ul>
+        </div>
+        <div class="path-card path-pain">
+          <div class="path-label">Path 02 — You're in a hard season</div>
+          <h3>Start with the story</h3>
+          <p>If you're in pain — physical, spiritual, or the kind that doesn't have a name — read the origin story in order.</p>
+          <ul class="path-posts">
+            <li>I used to be a runner</li>
+            <li>Ten years is a long time to be in pain</li>
+            <li>Dormant, not dead</li>
+            <li>I found the garden when I couldn't find anything else</li>
+            <li>To the person in their dormant season</li>
+          </ul>
+        </div>
+        <div class="path-card path-faith">
+          <div class="path-label">Path 03 — Wrestling with faith</div>
+          <h3>Start with the honest questions</h3>
+          <p>If you love your faith and have questions you don't know how to ask out loud, start here.</p>
+          <ul class="path-posts">
+            <li>My faith in the hard years</li>
+            <li>The searching — what I was looking for</li>
+            <li>Meaning is available almost anywhere</li>
+            <li>Paul's thorn in the flesh — and mine</li>
+            <li>The miracle I hold quietly</li>
+          </ul>
+        </div>
+        <div class="path-card path-mental">
+          <div class="path-label">Path 04 — Managing ADHD or anxiety</div>
+          <h3>Start with the honest accounts</h3>
+          <p>If your brain doesn't cooperate the way your culture expects, these were written for you specifically.</p>
+          <ul class="path-posts">
+            <li>What anxiety actually felt like</li>
+            <li>The quiet kind of depression</li>
+            <li>ADHD inside a high-achieving identity</li>
+            <li>The distracted prayers that still count</li>
+            <li>You are not spiritually defective</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="promise-box">
+        <span class="eyebrow">My promise to you</span>
+        <h3>What you'll always find here</h3>
+        <p>Honest conversation. The garden taken seriously as a lens for life. Faith that acknowledges hard questions. Mental health content that doesn't pretend prayer is the only tool. Writing that treats you like an adult with a real inner life.</p>
+        <p>What you will never find here: toxic positivity, performed vulnerability, polished answers to questions that don't have them, or content that treats your struggles as a marketing opportunity.</p>
+        <p>I don't post on Sundays. That day belongs to my God and my family. Everything else — I show up for.</p>
+        <div class="btn-row">
+          <button class="btn btn-gold"  onclick="nav('blog')">Read the blog</button>
+          <button class="btn btn-ghost" onclick="nav('newsletter')">Join the newsletter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-logo" style="cursor:default">Rooted <span>in Utah</span></div><p>Growing things slowly. Learning what lasts.</p></div>
+      <div class="footer-col"><h4>Navigate</h4><ul><li onclick="nav('home')">Home</li><li onclick="nav('about')">About</li><li onclick="nav('blog')">Blog</li><li onclick="nav('newsletter')">Newsletter</li></ul></div>
+      <div class="footer-col"><h4>Topics</h4><ul><li>The Garden</li><li>Faith & Theology</li><li>Mental Health</li><li>Fatherhood</li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li>Instagram</li><li>YouTube</li><li>Facebook</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Kendall Thompson — rootedinutah.com</p><p>Growing things slowly. Learning what lasts.</p></div>
+  </footer>
+</main>
+
+
+<!-- ═══════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════ -->
+<script>
+// ── Page navigation ──────────────────────────────────────────
+const pages   = document.querySelectorAll('.page');
+const navBtns = document.querySelectorAll('.nav-link');
+
+function nav(name) {
+  // close mobile menu
+  closeMobileMenu();
+
+  // hide all pages
+  pages.forEach(p => p.classList.remove('active', 'entering'));
+
+  // activate target page
+  const target = document.getElementById('page-' + name);
+  if (!target) return;
+  target.classList.add('active');
+  requestAnimationFrame(() => target.classList.add('entering'));
+
+  // update nav active state
+  navBtns.forEach(b => {
+    b.classList.remove('active');
+    b.removeAttribute('aria-current');
+  });
+  navBtns.forEach(b => {
+    const label = b.textContent.trim().toLowerCase();
+    if (
+      (name === 'home'       && label === 'home') ||
+      (name === 'about'      && label === 'about') ||
+      (name === 'blog'       && label === 'blog') ||
+      (name === 'newsletter' && label === 'newsletter') ||
+      (name === 'start'      && label === 'start here')
+    ) {
+      b.classList.add('active');
+      b.setAttribute('aria-current', 'page');
+    }
+  });
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// ── Mobile menu ───────────────────────────────────────────────
+const toggle = document.getElementById('navToggle');
+const mMenu  = document.getElementById('mobileMenu');
+
+toggle.addEventListener('click', () => {
+  const open = mMenu.classList.toggle('open');
+  toggle.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+});
+
+function closeMobileMenu() {
+  mMenu.classList.remove('open');
+  toggle.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+}
+
+// ── Blog filter ───────────────────────────────────────────────
+function filterBlog(cat, btn) {
+  document.querySelectorAll('.bf').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#blogGrid .blog-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+// ── Newsletter subscription feedback ─────────────────────────
+function subSuccess(btn) {
+  const input = btn.previousElementSibling;
+  if (!input || !input.value.includes('@')) {
+    input.focus();
+    input.style.borderColor = 'var(--rust)';
+    setTimeout(() => input.style.borderColor = '', 1500);
+    return;
+  }
+  btn.textContent = 'You\'re in ✓';
+  btn.style.background = 'var(--green)';
+  btn.disabled = true;
+  input.disabled = true;
+  input.value = '';
+  input.placeholder = 'Welcome to The Examined Life';
+}
+
+// ── Logo keyboard nav ─────────────────────────────────────────
+document.querySelector('.site-nav .nav-logo').addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') nav('home');
+});
+
+// ── Reduced motion ────────────────────────────────────────────
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.style.setProperty('--transition', '0s');
+}
+</script>
+</body>
+</html>
