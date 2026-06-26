@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8JVK3VK1RP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8JVK3VK1RP');
-</script>
 <!-- ============================================================
   ROOTED IN UTAH — rootedinutah.com
   Kendall Thompson
@@ -2282,8 +2274,7 @@ p:last-child{margin-bottom:0;}
         <li onclick="nav('tenets')">Dear Kendall</li>
       </ul></div>
       <div class="footer-col"><h4>Connect</h4><ul>
-        <li><a href="https://instagram.com/rooted_in_utah" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='inherit'">Instagram · @rooted_in_utah</a></li>
-        <li>YouTube</li><li>Facebook</li>
+        <li><a href="https://instagram.com/rooted_in_utah" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='inherit'">Instagram · @rooted_in_utah</a></li><li>YouTube</li><li>Facebook</li>
       </ul></div>
     </div>
     <div class="footer-bottom"><p>© 2025 Kendall Thompson — rootedinutah.com</p><p>Growing things slowly. Learning what lasts.</p></div>
@@ -2305,7 +2296,6 @@ p:last-child{margin-bottom:0;}
     stages.forEach(s => obs.observe(s));
   })();
 
-  // Garden join form
   function gardenJoinSuccess(btn) {
     const input = btn.previousElementSibling;
     if(!input || !input.value.includes('@')) {
@@ -2322,368 +2312,6 @@ p:last-child{margin-bottom:0;}
     input.placeholder = 'You\'re in The Garden';
   }
   </script>
-</main>
-
-<style>
-/* ── Tenets page specific styles ── */
-.tenets-page-hero {
-  background: var(--forest);
-  padding: 5rem 1.5rem 4rem;
-  position: relative; overflow: hidden;
-}
-.tenets-page-hero::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--green), var(--gold-dim), transparent);
-}
-.tenets-page-hero-inner {
-  max-width: var(--max-narrow);
-  margin: 0 auto; position: relative; z-index: 1;
-}
-.tenets-page-hero h1 { color: var(--parchment); margin-bottom: 1rem; }
-.tenets-page-hero h1 em { color: var(--gold-lt); font-style: italic; font-weight: 400; }
-.mission-statement {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  color: rgba(242,237,227,0.65);
-  line-height: 1.75;
-  border-left: 3px solid var(--green);
-  padding-left: 1.4rem;
-  margin-top: 1.5rem;
-  max-width: 620px;
-}
-
-/* Tenet full sections */
-.tenet-full {
-  padding: 3.5rem 0;
-  border-bottom: 1px solid var(--rule);
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-.tenet-full:last-of-type { border-bottom: none; }
-.tenet-full-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: rgba(74,124,89,0.15);
-  line-height: 1;
-  padding-top: 6px;
-  text-align: center;
-}
-.tenet-full-content {}
-.tenet-full-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 0.5rem;
-  display: block;
-}
-.tenet-full h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.6rem;
-  margin-top: 0;
-}
-.tenet-full .principle {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--ink);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--rule-lt);
-}
-.tenet-full .expansion {
-  font-size: 0.975rem;
-  color: var(--ink-mid);
-  line-height: 1.9;
-}
-
-/* Partnership section */
-.partnership {
-  background: var(--forest);
-  padding: 5rem 1.5rem;
-  position: relative; overflow: hidden;
-}
-.partnership-glow {
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(74,124,89,0.08) 0%, transparent 70%);
-}
-.partnership-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  position: relative; z-index: 1;
-}
-.partnership-header { margin-bottom: 3rem; }
-.partnership-header h2 { color: var(--parchment); }
-.partnership-header h2 em { color: var(--gold-lt); font-style: italic; font-weight: 400; }
-.partnership-header p { color: rgba(242,237,227,0.5); max-width: 540px; }
-.partnership-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-.p-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(74,124,89,0.18);
-  border-radius: var(--radius);
-  padding: 1.4rem;
-}
-.p-card-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 8.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--green-lt);
-  margin-bottom: 0.5rem;
-}
-.p-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--parchment);
-  margin-bottom: 0.4rem;
-}
-.p-card p { font-size: 13px; color: rgba(242,237,227,0.45); margin: 0; line-height: 1.6; }
-.partnership-contact {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(74,124,89,0.2);
-  border-radius: var(--radius);
-  padding: 2.5rem;
-  text-align: center;
-}
-.partnership-contact h3 { color: var(--parchment); margin-bottom: 0.5rem; }
-.partnership-contact p { color: rgba(242,237,227,0.5); max-width: 460px; margin: 0 auto 1.5rem; font-size: 14.5px; }
-.contact-form { display: flex; flex-direction: column; gap: 0.8rem; max-width: 440px; margin: 0 auto; }
-.contact-input {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(74,124,89,0.25);
-  border-radius: 2px;
-  padding: 11px 14px;
-  font-family: 'Source Serif 4', serif;
-  font-size: 14px;
-  color: var(--parchment);
-  outline: none;
-  transition: border-color var(--ease);
-}
-.contact-input:focus { border-color: var(--green); }
-.contact-input::placeholder { color: rgba(242,237,227,0.25); }
-.contact-textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-.contact-btn {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  background: var(--green);
-  color: white;
-  border: none;
-  padding: 13px;
-  border-radius: 2px;
-  transition: background var(--ease);
-}
-.contact-btn:hover { background: var(--green-lt); }
-
-@media (max-width: 700px) {
-  .tenet-full { grid-template-columns: 1fr; gap: 0.5rem; }
-  .tenet-full-num { font-size: 2rem; text-align: left; }
-}
-</style>
-
-  <!-- Page Hero -->
-  <div class="tenets-page-hero">
-    <div class="tenets-page-hero-inner">
-      <span class="eyebrow" style="color:var(--green-lt)">What We Stand For</span>
-      <h1>Welcome to <em>The Garden</em></h1>
-      <p class="mission-statement">We believe a meaningful life is built slowly, intentionally, and in alignment with what actually matters. These nine tenets are not aspirations. They are the convictions we live by — in the garden, in the home, in the work we create, and in the relationships we keep. They are the foundation of everything built under the Rooted in Utah name.</p>
-    </div>
-  </div>
-
-  <!-- Full Tenets -->
-  <div class="pad">
-    <div class="wrap-narrow">
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">01</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Foundation</span>
-          <h3>Rooted in What Matters</h3>
-          <p class="principle">The best life is the pursuit of meaning, beauty, and purpose — not the pursuit of happiness. We build around what endures.</p>
-          <p class="expansion">Happiness is a byproduct. It comes and goes with circumstance, with health, with luck. Meaning is different. Meaning can be found in a hard season, in a loss, in the long years when almost nothing goes the way you planned. I learned this the way most people learn it — not by reading about it, but by being stripped of the things I thought would make me happy and discovering that what remained was more solid than anything I had chased. The garden is a daily reminder of this. Nothing in a garden is optimized for pleasure. It requires patience, labor, and a willingness to tend something long before it produces anything. But the man who grows a garden year after year is building something that matters — even when the harvest is small. We choose to root our lives in what actually lasts.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">02</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Growth</span>
-          <h3>Growth Takes Time</h3>
-          <p class="principle">Strong roots, healthy relationships, physical wellness, and personal growth are cultivated slowly with consistency. Lasting change rarely happens overnight.</p>
-          <p class="expansion">I plant perennials because I believe in things that come back. A perennial doesn't produce much in its first year. It spends most of that time underground, developing the root system that will make everything above ground possible later. Most people give up on themselves, their relationships, and their work during the underground season — when nothing visible is happening yet. I spent twelve years in chronic pain building depth I didn't ask for. My faith got stripped of its performance layer and became something quieter and more real. My capacity for empathy was built by suffering in ways comfort never could have built it. None of that was fast. None of it was efficient. All of it was necessary. We are committed to the slow work because we have seen what it produces.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">03</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Responsibility</span>
-          <h3>Stewardship</h3>
-          <p class="principle">We strive to care well for what we've been given: our bodies, minds, homes, land, relationships, and communities.</p>
-          <p class="expansion">Stewardship is the word I keep returning to. Not ownership. Not optimization. Stewardship — the care of what has been entrusted to you, knowing it was never fully yours to begin with. The land I garden was here before me and will be here after me. The body I live in was given, not earned. The family I am building is the most sacred stewardship I have. I have learned that the quality of a life is measured not by what it accumulates but by how well it tends what it has been given. This applies to a plot of soil in Utah. It applies to a marriage. It applies to a community. We are stewards first.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">04</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Wellness</span>
-          <h3>Health &amp; Wholeness</h3>
-          <p class="principle">True wellness is more than physical fitness. We believe in caring for the body, mind, and spirit while pursuing growth, resilience, and balance.</p>
-          <p class="expansion">For most of my life, health meant performance. It meant what my body could produce — the pace, the distance, the result. Chronic pain dismantled that framework completely. When my body became the source of suffering rather than the source of identity, I had to learn what health actually meant when it had nothing to do with achievement. What I found was this: the body, the mind, and the soul are not separate systems. They are one system, and neglecting any one of them affects all the others. A dysregulated nervous system affects your capacity for faith. A sleep-deprived body affects your capacity for love. A soul that has never been honestly examined affects the quality of every relationship you have. Wholeness is the goal — not peak performance, not aesthetic appearance, but the full integration of body, mind, and spirit in genuine, sustainable health.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">05</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Excellence</span>
-          <h3>Craftsmanship</h3>
-          <p class="principle">Anything worth building is worth building well. We value patience, intentionality, and attention to detail in the things we create and the lives we live.</p>
-          <p class="expansion">The gardener who amends the soil before planting, who chooses varieties intentionally, who prunes with knowledge and care rather than impulse — that gardener gets a different result than the one who scatters seed and hopes. I have tried both approaches in the garden and in my life. The difference is not talent. It is intention. Craftsmanship is the practice of caring enough about something to do it properly. It is the opposite of cutting corners, of publishing before the work is ready, of building quickly at the expense of building well. Everything under the Rooted in Utah name — the writing, the partnerships, the products, the page itself — is held to this standard. Not perfection. Craftsmanship. The deliberate, patient pursuit of doing the work as well as it can be done.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">06</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Presence</span>
-          <h3>Beauty in the Everyday</h3>
-          <p class="principle">A meaningful life is often found in ordinary moments: a garden in bloom, a family dinner, a quiet walk, a sunrise over the mountains.</p>
-          <p class="expansion">One of the things the garden does for me that almost nothing else does is force me into the present tense. You cannot be somewhere else when your hands are in the soil. The beetle near the basil demands your attention. The way the morning light hits the tomatoes at 7am on a July Tuesday is something you either see or you miss — and once it is gone it does not come back exactly that way again. I spent years missing things. Not because I was a bad person but because my mind was always three steps ahead of wherever I was. The garden slowed me down. So did chronic pain, in its own brutal way. What I have learned is that beauty is not rare. It is constant and ordinary and available to anyone who is paying attention. We are committed to paying attention.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">07</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Together</span>
-          <h3>Community &amp; Belonging</h3>
-          <p class="principle">Life is richer when shared. Strong families, strong neighborhoods, and strong communities create a foundation for lasting impact.</p>
-          <p class="expansion">I am an LDS man. Community is not a peripheral feature of my faith — it is structural. The ward, the covenant, the shared table, the showing up for each other in hard seasons — these are not optional additions to a spiritual life. They are the spiritual life. But I have also seen what happens when community becomes performance, when belonging is conditional, when the pressure to appear okay prevents honest conversation. The community worth building is the kind where a man can say he is struggling and be met with presence rather than platitude. Where a garden can be shared, not just admired. Where people are known, not just recognized. That is the community we are trying to cultivate — here, in Utah, and in the broader conversation this page is part of.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">08</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Legacy</span>
-          <h3>Leave Things Better</h3>
-          <p class="principle">Whether it's a piece of land, a home, a relationship, or a community — we strive to leave every place better than we found it.</p>
-          <p class="expansion">When we moved into our new home, the previous owners had left behind fruit trees, perennials along the fence line, garden beds with good bones. Years of their labor already in the ground. I walked the yard the first week and kept finding things — a tree in a corner I hadn't noticed, bulbs coming up along the south wall. I didn't start from nothing. I inherited someone else's faithfulness. That experience changed how I think about legacy. We are always building on work that came before us. The question is not whether we will leave something behind — we will. The question is whether what we leave will be worth inheriting. In the garden, in the home, in the relationships we tend, in the work we create — we are always leaving something. We choose to leave things worth finding.</p>
-        </div>
-      </div>
-
-      <div class="tenet-full">
-        <div class="tenet-full-num">09</div>
-        <div class="tenet-full-content">
-          <span class="tenet-full-tag">Strength</span>
-          <h3>Resilience</h3>
-          <p class="principle">Like a plant that must be pruned to grow, hardship can help us develop deeper roots. We believe challenges, setbacks, and adversity can shape us into stronger, wiser, and more resilient people.</p>
-          <p class="expansion">I was an elite runner. My body was fast and strong and I trusted it completely. Then chronic pain arrived and spent the next twelve years taking that away — slowly, progressively, relentlessly. The identity I had built on athletic performance collapsed. What I did not expect, and could not have predicted, was what grew in its place. The man I am today — the depth of my faith, the quality of my empathy, the seriousness with which I take meaning and suffering and the examined life — none of that existed in the athlete. All of it grew in the hard years. The garden keeps teaching me this. You do not prune a plant to punish it. You prune it to redirect its energy toward what matters. The cuts that seem like loss are often the condition for the growth that follows. We do not seek suffering. But we do not waste it either.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Brand Partnership Section -->
-  <div class="partnership">
-    <div class="partnership-glow" aria-hidden="true"></div>
-    <div class="partnership-inner">
-      <div class="partnership-header">
-        <span class="eyebrow" style="color:var(--green-lt)">Work With Us</span>
-        <h2>Brand <em>Partnerships</em></h2>
-        <p>These tenets are not just personal convictions — they are the standard by which every collaboration, partnership, and business relationship under the Rooted in Utah name is evaluated. If your brand is built around the same values, we'd like to meet you.</p>
-      </div>
-
-      <div class="partnership-grid">
-        <div class="p-card">
-          <div class="p-card-tag">We Partner With</div>
-          <h4>Wellness &amp; Health Brands</h4>
-          <p>Supplements, nutrition, mental health tools, and physical wellness products that align with whole-person health — evidence-informed and integrity-driven.</p>
-        </div>
-        <div class="p-card">
-          <div class="p-card-tag">We Partner With</div>
-          <h4>Faith-Based Businesses</h4>
-          <p>LDS publishers, faith-adjacent brands, and businesses serving the Latter-day Saint community with products and services of genuine quality.</p>
-        </div>
-        <div class="p-card">
-          <div class="p-card-tag">We Partner With</div>
-          <h4>Home, Garden &amp; Land</h4>
-          <p>Gardening, homesteading, real estate, and home products that reflect the values of stewardship, craftsmanship, and intentional living.</p>
-        </div>
-        <div class="p-card">
-          <div class="p-card-tag">We Partner With</div>
-          <h4>Family &amp; Community</h4>
-          <p>Brands serving families, fathers, and communities with products and services that strengthen the relationships and places that matter most.</p>
-        </div>
-        <div class="p-card">
-          <div class="p-card-tag">We Partner With</div>
-          <h4>Books &amp; Education</h4>
-          <p>Publishers, educators, and learning platforms committed to serious, meaningful content that helps people think more clearly and live more intentionally.</p>
-        </div>
-        <div class="p-card">
-          <div class="p-card-tag">We Don't Partner With</div>
-          <h4>Anything Misaligned</h4>
-          <p>If a brand's values, products, or practices conflict with our nine tenets, we decline — regardless of the financial offer. Our audience trusts us. That trust is not for sale.</p>
-        </div>
-      </div>
-
-      <div class="partnership-contact">
-        <span class="eyebrow" style="color:var(--green-lt);justify-content:center;display:flex;">Get in Touch</span>
-        <h3>Interested in working together?</h3>
-        <p>Tell us about your brand and what you have in mind. We read every message personally and respond to every serious inquiry.</p>
-        <div class="contact-form">
-          <input class="contact-input" type="text"  placeholder="Your name" autocomplete="name">
-          <input class="contact-input" type="text"  placeholder="Your brand or company">
-          <input class="contact-input" type="email" placeholder="your@email.com" autocomplete="email">
-          <textarea class="contact-input contact-textarea" placeholder="Tell us about your brand and what you have in mind..."></textarea>
-          <button class="contact-btn" onclick="contactSuccess(this)">Send Message</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-brand"><div class="nav-logo" style="cursor:default">Rooted <span>in Utah</span></div><p>Growing things slowly. Learning what lasts.</p></div>
-      <div class="footer-col"><h4>Navigate</h4><ul>
-        <li onclick="nav('home')">Home</li>
-        <li onclick="nav('about')">About</li>
-        <li onclick="nav('blog')">Blog</li>
-        <li onclick="nav('books')">Books</li>
-        <li onclick="nav('start')">Work With Me</li>
-      </ul></div>
-      <div class="footer-col"><h4>The Garden</h4><ul>
-        <li onclick="nav('tenets')">Our Tenets</li>
-        <li onclick="nav('tenets')">Brand Partnerships</li>
-        <li onclick="nav('tenets')">Work With Us</li>
-      </ul></div>
-      <div class="footer-col"><h4>Connect</h4><ul>
-        <li><a href="https://instagram.com/rooted_in_utah" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold-lt)'" onmouseout="this.style.color='inherit'">Instagram · @rooted_in_utah</a></li><li>YouTube</li><li>Facebook</li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom"><p>© 2025 Kendall Thompson — rootedinutah.com</p><p>Growing things slowly. Learning what lasts.</p></div>
-  </footer>
 </main>
 
 
@@ -2892,14 +2520,14 @@ p:last-child{margin-bottom:0;}
     <div class="wrap">
       <span class="eyebrow">What I Offer</span>
       <h2>Current &amp; <em>Coming Soon</em></h2>
-      <p>Everything here is built on the same foundation — the nine tenets, the personal brand, the trust built through honest content. Nothing is offered before it is ready to be done well.</p>
+      <p>Everything here is built on the same foundation — the personal brand, the trust built through honest content. Nothing is offered before it is ready to be done well.</p>
 
       <div class="offering-grid">
 
         <div class="offering-card oc-green">
           <span class="offering-tag">Partnerships</span>
           <h3>Brand Partnerships</h3>
-          <p>Selective partnerships with brands that align with our nine tenets. Wellness, faith, family, home, and education. We don't partner with everything — but when we do, it is genuine and it is earned. Every partnership is evaluated against the values in The Garden before a conversation begins.</p>
+          <p>Selective partnerships with brands that align with the values of The Garden. Wellness, faith, family, home, and education. We don't partner with everything — but when we do, it is genuine and it is earned. Every partnership is evaluated against the values in The Garden before a conversation begins.</p>
           <button class="btn btn-ghost" style="margin-top:1rem;align-self:flex-start;font-size:9px;padding:8px 14px;" onclick="nav('tenets')">View The Garden →</button>
           <span class="offering-status status-available">Available Now</span>
         </div>
